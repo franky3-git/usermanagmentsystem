@@ -1,0 +1,12 @@
+.about {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	min-height: calc(100vh - 70px);
+}
+.about h1 {
+	padding: 15px;
+	background-color:cornflowerblue;
+	color: #eee;
+	border-radius: 10px;
+}
