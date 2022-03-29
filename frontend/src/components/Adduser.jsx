@@ -5,20 +5,23 @@ import './css/adduser.css';
 
 const Adduser = ({users, setUsers}) => {
 	
-	//const [handleForm, setHandleForm] = useState({name: '', email: '', ,password: ''});
+	const [user, setUser] = useState({name: '', email: '', password: ''});
 	
-	const [name, setName] = useState('');
-	const [email, setEmail] = useState('');
-	const [password, setPassword] = useState('');
+//	const [name, setName] = useState('');
+//	const [email, setEmail] = useState('');
+//	const [password, setPassword] = useState('');
 	
 	const handleSubmit = (e) => {
 		e.preventDefault();
-		console.log('form submitted')
-		const newUser = {name, email, password, _id: Date.now().toLocaleString()}
+		console.log('user added');
+		const newUser = {...user, _id: Date.now().toLocaleString()}
 		
 		setUsers([...users, newUser])
-		
-		console.log(users)
+	}
+	
+	const handleForm = (e) => {
+		const newUser = {...user, [e.target.name]: e.target.value}
+		setUser(newUser)
 	}
 	
 	return (
@@ -27,15 +30,15 @@ const Adduser = ({users, setUsers}) => {
 			<form className="add-user-form" onSubmit={handleSubmit} >
 				<div className="form-group">
 					<label htmlFor="name">name: </label>
-					<input type="text" name="name" value={name} onChange={(e) => setName(e.target.value)} />
+					<input type="text" name="name" value={user.name} onChange={handleForm} />
 				</div>
 				<div className="form-group">
 					<label htmlFor="email">email: </label>
-					<input type="email" name="email" value={email} onChange={(e) => setEmail(e.target.value)} />
+					<input type="email" name="email" value={user.email} onChange={handleForm} />
 				</div>
 				<div className="form-group">
-					<label htmlFor="pass">password: </label>
-					<input type="password" name="pass" value={password} onChange={(e) => setPassword(e.target.value)} />
+					<label htmlFor="password">password: </label>
+					<input type="password" name="password" value={user.password} onChange={handleForm} />
 				</div>
 				<button type="submit" className="btn-add-user">add user</button>
 			</form>
