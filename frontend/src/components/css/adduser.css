@@ -1,0 +1,33 @@
+#adduser, #updateuser {
+	margin: 15px auto;
+	max-width: 600px;
+	
+}
+h1 {
+	text-align: center;
+	margin-bottom: 20px;
+}
+.add-user-form, .update-user-form {
+	padding: 20px;
+	border: solid #666 2px;
+	border-radius: 4px;
+}
+.form-group {
+	display: flex;
+	align-items: center;
+	padding: 10px;
+}
+.form-group input {
+	background-color: #ddd;
+	border: none;
+	border-radius: 4px;
+	padding: 9px;
+	width: 100%;
+}
+label {
+	width: 150px;
+}
+.btn-add-user {
+	padding: 7px 17px;
+	cursor: pointer;
+}

@@ -6,7 +6,7 @@ import './css/header.css';
 const Header = () => {
 	return (
 		<header>
-			<div class="title">user management system</div>
+			<div className="title">user management system</div>
 			<nav>
 				<Link to="/" className="link">Home</Link>
 				<Link to="/adduser" className="link">add user</Link>
