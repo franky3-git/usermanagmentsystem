@@ -22,6 +22,9 @@
 .user:hover {
 	background-color: #ddd;
 }
+.btn {
+	font-size: .8rem;
+}
 .btn-update-user, .btn-delete-user {
 	background-color: darkorange;
 	color: #eee;
@@ -36,5 +39,4 @@
 }
 .btn-delete-user {
 	background-color: red;
-	
 }

@@ -1,11 +1,13 @@
 import React, { useState } from 'react';
+import { useParams } from 'react-router-dom';
+import Error from './Error';
 
-import './css/adduser.css';
+import './css/updateuser.css';
 
 
-const Updateuser = ({users, setUsers}) => {
+const Updateuser = ({users, onUpdateUser, errorMessage, closeErrorMessage}) => {
 	
-	//const [handleForm, setHandleForm] = useState({name: '', email: '', ,password: ''});
+	const {id} = useParams()
 	
 	const [name, setName] = useState('');
 	const [email, setEmail] = useState('');
@@ -13,12 +15,12 @@ const Updateuser = ({users, setUsers}) => {
 	
 	const handleSubmit = (e) => {
 		e.preventDefault();
-		console.log('form submitted')
-		const newUser = {name, email, password, _id: Date.Now().toLocaleString()}
+		console.log('user updated')
+		onUpdateUser(id, name, email, password)
 		
-		setUsers([...users, newUser])
-		
-		console.log(users)
+		setName('');
+		setEmail('');
+		setPassword('');
 	}
 	
 	return (
@@ -39,6 +41,7 @@ const Updateuser = ({users, setUsers}) => {
 				</div>
 				<button type="submit" className="btn-add-user">update user</button>
 			</form>
+			{errorMessage ? <Error message='there is no such user' closeError={closeErrorMessage} /> : null}
 		</div>
 	)
 }

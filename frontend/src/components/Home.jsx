@@ -4,13 +4,15 @@ import { Link } from 'react-router-dom';
 import './css/home.css';
 
 
-const User = ({name, email, _id, onUpdateUser, onDeleteUser}) => {
+const User = ({name, email, _id, onDeleteUser}) => {
 	return (
+		
 		<div className="user">
 			<p className="name">name: {name}</p>
 			<p className="email">email: {email}</p>
-			<Link to="/updateuser" className="btn-update-user">update</Link>
-			<button onClick={() => onDeleteUser(_id)} className="btn-delete-user">delete</button>
+			<Link to={`/updateuser/${_id}`} className="btn btn-update-user">update</Link>
+			<button onClick={() => onDeleteUser(_id)} className="btn btn-delete-user">delete</button>
+			<Link to={`/singleuser/${_id}`} className="btn btn-update-user">view</Link>
 		</div>
 	)
 }

@@ -7,16 +7,13 @@ const Adduser = ({users, setUsers}) => {
 	
 	const [user, setUser] = useState({name: '', email: '', password: ''});
 	
-//	const [name, setName] = useState('');
-//	const [email, setEmail] = useState('');
-//	const [password, setPassword] = useState('');
-	
 	const handleSubmit = (e) => {
 		e.preventDefault();
 		console.log('user added');
 		const newUser = {...user, _id: Date.now().toLocaleString()}
 		
 		setUsers([...users, newUser])
+		setUser({name: '', email: '', password: ''})
 	}
 	
 	const handleForm = (e) => {

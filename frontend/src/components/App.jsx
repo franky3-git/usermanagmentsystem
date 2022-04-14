@@ -5,6 +5,7 @@ import Home from './Home';
 import About from './About';
 import Adduser from './Adduser';
 import Updateuser from './Updateuser';
+import Singleuser from './Singleuser';
 import Error404 from './Error404';
 
 
@@ -20,6 +21,7 @@ const sampleUsers = [
 
 function App() {
 	const [users, setUsers] = useState(sampleUsers);
+	const [errorMessage, setErrorMessage] = useState('');
 	
 	const handleDeleteUser = (id) => {
 		if(window.confirm('Are you sure you want to delete this user?')) {
@@ -28,10 +30,27 @@ function App() {
 		}
 	}
 	
-	const handleUpdateUser = (id) => {
-		
+	const handleUpdateUser = (id, name, email, password) => {
+		const selectedUser = users.find(user => user._id == id);
+		if(!selectedUser) {
+			setErrorMessage(true)
+			return;
+		} else {
+			console.log(selectedUser, name, email, password)
+			const userUpdate = {...selectedUser, name, email, password}
+			setUsers(users.map(user => {
+				if(selectedUser._id === user._id) {
+					return userUpdate;
+				}
+				return user;
+			}))
+		}	
 	}
 
+	const closeErrorMessage = () => {
+		setErrorMessage(false)
+	}
+	
 	return (
 			<Router>
 				<Header />
@@ -39,11 +58,14 @@ function App() {
 					<Route exact path="/">
 						<Home users={users} onDeleteUser={handleDeleteUser} />
 					</Route>
+					<Route path="/singleuser/:id">
+						<Singleuser users={users} />
+					</Route>
 					<Route path="/adduser">
 						<Adduser users={users} setUsers={setUsers} />
 					</Route>
-					<Route path="/updateuser">
-						<Updateuser users={users} setUsers={setUsers} />
+					<Route path="/updateuser/:id">
+						<Updateuser users={users} onUpdateUser={handleUpdateUser} errorMessage={errorMessage} closeErrorMessage={closeErrorMessage} />
 					</Route>
 					<Route path="/about">
 						<About />
