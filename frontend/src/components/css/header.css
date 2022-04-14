@@ -16,4 +16,10 @@ header {
 	margin: 0 15px;
 	text-decoration: none;
 	font-size: 1.1rem;
+	padding: 4px 8px;
+	border-radius: 3px;
+}
+.link.active {
+	background-color: dodgerblue;
+	color: #eee;
 }
