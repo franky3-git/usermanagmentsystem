@@ -3,7 +3,7 @@ import { useParams } from 'react-router-dom';
 import Error from './Error';
 
 
-const Singleuser = ({users, errorMessage, closeErrorMessage}) => {
+const Singleuser = ({users}) => {
 	
 	const {id} = useParams()
 	console.log(id)
@@ -12,7 +12,7 @@ const Singleuser = ({users, errorMessage, closeErrorMessage}) => {
 		<div id="updateuser">
 			<h1>Single user</h1>
 			
-			{errorMessage ? <Error message='there is no such user' closeError={closeErrorMessage} /> : null}
+		
 		</div>
 	)
 }

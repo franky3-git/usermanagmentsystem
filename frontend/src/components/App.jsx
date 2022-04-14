@@ -13,9 +13,9 @@ import Error404 from './Error404';
 import './css/App.css';
 
 const sampleUsers = [
-	{_id: 1, name: 'frank', email: 'frankndounga@gmail.com', password: 'something1'},
-	{_id: 2, name: 'ulrich', email: 'ulrichkeutch@gmail.com', password: 'something2'},
-	{_id: 3, name: 'raissa', email: 'raissadantse@gmail.com', password: 'something3'},
+	{_id: 1, name: 'frank', email: 'frankndounga@gmail.com', password: 'something1', number: 1},
+	{_id: 2, name: 'ulrich', email: 'ulrichkeutch@gmail.com', password: 'something2', number: 2},
+	{_id: 3, name: 'raissa', email: 'raissadantse@gmail.com', password: 'something3', number: 3},
 ]
 
 

@@ -10,7 +10,7 @@ const Adduser = ({users, setUsers}) => {
 	const handleSubmit = (e) => {
 		e.preventDefault();
 		console.log('user added');
-		const newUser = {...user, _id: Date.now().toLocaleString()}
+		const newUser = {...user, _id: Date.now().toLocaleString(), number: users[users.length -1]._id + 1}
 		
 		setUsers([...users, newUser])
 		setUser({name: '', email: '', password: ''})
